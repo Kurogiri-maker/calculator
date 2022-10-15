@@ -1,4 +1,4 @@
-package com.Kurogirmaker.calculator;
+package com.Kurogirimaker.calculator;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 public class CalculatorTest {
