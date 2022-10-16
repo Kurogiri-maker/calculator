@@ -31,7 +31,7 @@ sh "docker build -t kurogirixo/calculator ."
 }
 stage("Docker push") {
 steps {
-sh "docker push leszko/calculator"
+sh "docker push kurogirixo/calculator"
 }
 }
 }
