@@ -24,6 +24,10 @@ steps {
 sh "./gradlew build"
 }
 }
+stage('Initialize'){
+        def dockerHome = tool 'docker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+}
 stage("Docker build") {
 steps {
 sh "docker build -t kurogirixo/calculator ."
