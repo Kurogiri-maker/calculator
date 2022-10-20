@@ -21,7 +21,7 @@ sh "./gradlew test"
 }
 stage("Deploy to staging") {
 steps {
-sh "docker run -d --rm -p 8765:8765 --name calculator kurogirixo/calculator"
+sh "docker run -d --rm -p 8765:8080 --name calculator kurogirixo/calculator"
 }
 }
 stage("Acceptance test") {
