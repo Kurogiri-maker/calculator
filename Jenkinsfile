@@ -19,32 +19,9 @@ steps {
 sh "./gradlew test"
 }
 }
-stage("Package") {
+stage("Deploy to staging") {
 steps {
-sh "./gradlew build"
-}
-}
-stage("Initialize"){
-steps{
-script{
-        def dockerHome = tool 'docker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-}
-}
-}
-stage("Docker build") {
-steps {
-sh "docker build -t kurogirixo/calculator ."
-}
-}
-stage("Docker login") {
-steps {
-sh "docker login --username kurogirixo --password kurogiri02"
-}
-}
-stage("Docker push") {
-steps {
-sh "docker push kurogirixo/calculator"
+sh "docker run -d --rm -p 8765:8080 --name calculator kurogirixo/calculator"
 }
 }
 }
